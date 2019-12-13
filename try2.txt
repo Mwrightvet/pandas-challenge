@@ -1,0 +1,33 @@
+#Age Demographics
+#Drop Duplicates
+age_purchases = purchases_df.groupby(['Age'])
+total_by_age = players_by_gender_df['SN'].nunique()
+
+#set the bin ranges as the example asked
+bins = [0,10,15,19,25,29,35,39,100]
+age_labels = ["<10", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40+"]
+
+purchases_df['Age Groups'] = pd.cut(purchases_df['Age'],bins, labels=age_labels)
+
+purchases = pd.DataFrame({"Total Count":  total_by_age,
+                         "Percentage of Players": total_by_age / total_players})
+purchases_df.head()
+
+
+ 
+
+purchases_df['Age Groups'] = pd.cut(purchases_df['Age'],bins)#,labels= age_labels)
+
+age_groups = purchases_df.groupby('Age Groups')
+
+# Total players by age category
+total_by_age = players_by_gender_df['SN'].nunique()
+total_by_age
+
+
+age_demographic = pd.DataFrame({"Total Count":  total_by_age,
+                                "Percentage of Players":new}                                )
+
+
+age_demographic
+
